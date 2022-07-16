@@ -4,6 +4,7 @@ import koschei.models.Duck5;
 import koschei.models.Egg6;
 import koschei.models.Island2;
 import koschei.models.Wood3;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -12,11 +13,11 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "koschei")
 public class AppConfig {
 
-    @Bean
+    @Bean("island")
     public static Island2 getIsland(Wood3 wood) {
         return new Island2(wood);
     }
 
-    @Bean
+    @Bean("duck")
     public static Duck5 getDuck(Egg6 egg) {return new Duck5(egg);}
 }
